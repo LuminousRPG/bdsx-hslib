@@ -4,7 +4,7 @@ import { CommandOrigin } from "bdsx/bds/commandorigin";
 import { Player, PlayerPermission } from "bdsx/bds/player";
 import { bedrockServer } from "bdsx/launcher";
 import { red } from "colors";
-export namespace MCCmd {
+export namespace CmdUtil {
     export const run = bedrockServer.executeCommand;
     export const runOnConsole = bedrockServer.executeCommandOnConsole;
 

@@ -2,7 +2,7 @@ import { Actor } from "bdsx/bds/actor";
 import { serverInstance } from "bdsx/bds/server";
 import { NetworkIdentifier } from "bdsx/bds/networkidentifier";
 import { ScoreboardId } from "bdsx/bds/scoreboard";
-import { MCCmd } from "./command";
+import { CmdUtil } from "./command";
 import { Player } from "bdsx/bds/player";
 
 const level = serverInstance.minecraft.getLevel();
@@ -15,7 +15,7 @@ export namespace MCScore {
         amount: number
     ) {
         //점수 추가
-        MCCmd.run(
+        CmdUtil.run(
             `scoreboard players add "${player.getName()}" ${objective} ${amount}`
         );
     }
@@ -25,7 +25,7 @@ export namespace MCScore {
         amount: number
     ) {
         //점수 제거
-        MCCmd.run(
+        CmdUtil.run(
             `scoreboard players remove "${player.getName()}" ${objective} ${amount}`
         );
     }
@@ -35,13 +35,13 @@ export namespace MCScore {
         amount: number
     ) {
         //점수 설정
-        MCCmd.run(
+        CmdUtil.run(
             `scoreboard players set "${player.getName()}" ${objective} ${amount}`
         );
     }
     export function resetScore(objective: string, player: Player) {
         //점수 재설정
-        MCCmd.run(
+        CmdUtil.run(
             `scoreboard players set "${player.getName()}" ${objective} 0`
         );
     }

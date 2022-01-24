@@ -6,7 +6,7 @@ import {
 import { command } from "bdsx/command";
 import { Event } from "bdsx/eventtarget";
 import { CxxString } from "bdsx/nativetype";
-import { MCCmd } from "./command";
+import { CmdUtil } from "./command";
 import { IntervalUtil } from "./interval";
 
 export const FETCH_COMMAND = "fetchentities";
@@ -21,7 +21,7 @@ export class EntitiesDetectedEvent {
 IntervalUtil.New(() => {
     for (const id of Object.keys(EntitiesDetectedEvent.Entries)) {
         const selector = EntitiesDetectedEvent.Entries[id];
-        MCCmd.run(`${FETCH_COMMAND} ${id} ${selector}`);
+        CmdUtil.run(`${FETCH_COMMAND} ${id} ${selector}`);
     }
 }, 200);
 export const onEntitiesDetected = new Event<
