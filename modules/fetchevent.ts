@@ -3,7 +3,7 @@ import { ActorCommandSelector, CommandPermissionLevel } from "bdsx/bds/command";
 import { command } from "bdsx/command";
 import { Event } from "bdsx/eventtarget";
 import { CxxString } from "bdsx/nativetype";
-import { CmdUtil } from "./command";
+import { MCCmd } from "../../../scriptUtils/command";
 import { IntervalUtil } from "./interval";
 
 export const FETCH_COMMAND = "fetchentities";
@@ -24,7 +24,7 @@ export class EntitiesDetectedEvent {
 IntervalUtil.New(() => {
     for (const id of Object.keys(EntitiesDetectedEvent.Entries)) {
         const selector = EntitiesDetectedEvent.Entries[id];
-        CmdUtil.run(`${FETCH_COMMAND} ${id} ${selector}`);
+        MCCmd.run(`${FETCH_COMMAND} ${id} ${selector}`);
     }
 }, 200);
 export const onEntitiesDetected = new Event<
