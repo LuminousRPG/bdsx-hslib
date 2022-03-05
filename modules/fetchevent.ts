@@ -26,7 +26,7 @@ IntervalUtil.New(() => {
         const selector = EntitiesDetectedEvent.Entries[id];
         MCCmd.run(`${FETCH_COMMAND} ${id} ${selector}`);
     }
-}, 200);
+}, 3000);
 export const onEntitiesDetected = new Event<
     (event: EntitiesDetectedEvent) => void
 >();
